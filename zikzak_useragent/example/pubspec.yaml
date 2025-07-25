@@ -12,8 +12,6 @@ dependencies:
 
   zikzak_useragent:
     path: ../
-  zikzak_useragent_platform_interface:
-    path: ../../zikzak_useragent_platform_interface
 
   cupertino_icons: ^1.0.2
 

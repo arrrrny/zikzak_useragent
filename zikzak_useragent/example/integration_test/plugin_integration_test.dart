@@ -15,7 +15,7 @@ void main() {
   IntegrationTestWidgetsFlutterBinding.ensureInitialized();
 
   testWidgets('getPlatformUserAgent test', (WidgetTester tester) async {
-    final WebviewUserAgent plugin = WebviewUserAgent();
+    final ZikzakUserAgent plugin = ZikzakUserAgent();
     final String? userAgent = await plugin.getPlatformUserAgent();
     // The version string depends on the host platform running the test, so
     // just assert that some non-empty string is returned.

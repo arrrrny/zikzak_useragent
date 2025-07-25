@@ -17,7 +17,7 @@ class MyApp extends StatefulWidget {
 
 class _MyAppState extends State<MyApp> {
   String _platformUserAgent = 'Unknown';
-  final _webviewUserAgentPlugin = WebviewUserAgent();
+  final _zikzakUserAgentPlugin = ZikzakUserAgent();
 
   @override
   void initState() {
@@ -32,8 +32,8 @@ class _MyAppState extends State<MyApp> {
     // We also handle the message potentially returning null.
     try {
       platformUserAgent =
-          await _webviewUserAgentPlugin.getPlatformUserAgent() ??
-              'Unknown platform UserAgent';
+          await _zikzakUserAgentPlugin.getPlatformUserAgent() ??
+          'Unknown platform UserAgent';
     } on PlatformException {
       platformUserAgent = 'Failed to get platform UserAgent.';
     }
@@ -52,12 +52,8 @@ class _MyAppState extends State<MyApp> {
   Widget build(BuildContext context) {
     return MaterialApp(
       home: Scaffold(
-        appBar: AppBar(
-          title: const Text('Plugin example app'),
-        ),
-        body: Center(
-          child: Text(_platformUserAgent),
-        ),
+        appBar: AppBar(title: const Text('ZikZak UserAgent Plugin')),
+        body: Center(child: Text(_platformUserAgent)),
       ),
     );
   }
