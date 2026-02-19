@@ -13,6 +13,6 @@ class ZikzakUserAgentIOS extends ZikzakUserAgentPlatform {
   @override
   Future<String> getPlatformUserAgent() async {
     String userAgent = await methodChannel.invokeMethod("getPlatformUserAgent");
-    return userAgent += ' Safari/604.1';
+    return userAgent += ' Safari/605.1.15';
   }
 }
