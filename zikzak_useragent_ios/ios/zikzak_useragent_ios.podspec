@@ -1,6 +1,6 @@
 Pod::Spec.new do |s|
   s.name             = 'zikzak_useragent_ios'
-  s.version          = '1.1.0'
+  s.version          = '1.1.1'
   s.summary          = 'iOS implementation of ZikZak UserAgent plugin for Flutter.'
   s.description      = <<-DESC
                        The iOS implementation of zikzak_useragent plugin that provides

@@ -1,7 +1,7 @@
 name: zikzak_useragent
 description: "A Flutter plugin to get native WebView UserAgent."
 repository: https://github.com/arrrrny/zikzak_useragent/tree/main/zikzak_useragent
-version: 1.1.0
+version: 1.1.1
 
 environment:
   sdk: "^3.3.0"
@@ -10,10 +10,12 @@ environment:
 dependencies:
   flutter:
     sdk: flutter
-  plugin_platform_interface: ^2.0.2
+  plugin_platform_interface: ^2.1.8
   zikzak_useragent_ios: ^1.1.0
   zikzak_useragent_android: ^1.1.0
-  zikzak_useragent_platform_interface: ^1.1.0
+  zikzak_useragent_macos:
+    path: ../zikzak_useragent_macos
+  zikzak_useragent_platform_interface: ^1.1.1
 
 dev_dependencies:
   flutter_test:
@@ -27,3 +29,5 @@ flutter:
         default_package: zikzak_useragent_android
       ios:
         default_package: zikzak_useragent_ios
+      macos:
+        default_package: zikzak_useragent_macos

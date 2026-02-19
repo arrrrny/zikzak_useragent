@@ -1,12 +1,12 @@
-import Flutter
-import UIKit
+import Cocoa
+import FlutterMacOS
 import WebKit
 
 public class ZikzakUserAgentPlugin: NSObject, FlutterPlugin {
 
     public static func register(with registrar: FlutterPluginRegistrar) {
         let channel = FlutterMethodChannel(
-            name: "zikzak_useragent", binaryMessenger: registrar.messenger())
+            name: "zikzak_useragent", binaryMessenger: registrar.messenger)
         let instance = ZikzakUserAgentPlugin()
         registrar.addMethodCallDelegate(instance, channel: channel)
     }

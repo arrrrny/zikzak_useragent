@@ -22,5 +22,17 @@ dev_dependencies:
     sdk: flutter
   flutter_lints: ^2.0.0
 
+dependency_overrides:
+  zikzak_useragent:
+    path: ../
+  zikzak_useragent_platform_interface:
+    path: ../../zikzak_useragent_platform_interface
+  zikzak_useragent_ios:
+    path: ../../zikzak_useragent_ios
+  zikzak_useragent_android:
+    path: ../../zikzak_useragent_android
+  zikzak_useragent_macos:
+    path: ../../zikzak_useragent_macos
+
 flutter:
   uses-material-design: true

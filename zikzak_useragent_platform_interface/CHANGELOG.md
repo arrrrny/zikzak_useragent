@@ -1,3 +1,6 @@
+## 1.1.2
+ - Optimizations on IOS and Android
+ - 
 ## 1.1.1
  - Fixed default value
  - 

@@ -34,8 +34,8 @@ class _MyAppState extends State<MyApp> {
       platformUserAgent =
           await _zikzakUserAgentPlugin.getPlatformUserAgent() ??
           'Unknown platform UserAgent';
-    } on PlatformException {
-      platformUserAgent = 'Failed to get platform UserAgent.';
+    } catch (e) {
+      platformUserAgent = 'Failed to get platform UserAgent: $e';
     }
 
     // If the widget was removed from the tree while the asynchronous platform
