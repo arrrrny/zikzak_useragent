@@ -1,3 +1,6 @@
+## 1.1.2
+ - Performance improvment, better error handling
+ - 
 ## 1.1.1
  - Fixed default value
  

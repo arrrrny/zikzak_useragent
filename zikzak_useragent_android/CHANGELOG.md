@@ -1,3 +1,6 @@
+## 1.1.2
+ - Performance improvment, better error handling
+ - 
 ## 1.1.0
 
 ### 🔥 ZIKZAK ANDROID IMPLEMENTATION REFACTOR 🔥
