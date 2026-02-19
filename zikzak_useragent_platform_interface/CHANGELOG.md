@@ -1,3 +1,6 @@
+## 1.1.1
+ - Fixed default value
+ - 
 ## 1.1.0
 
 ### 🔥 ZIKZAK PLATFORM INTERFACE REFACTOR 🔥
