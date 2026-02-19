@@ -1,7 +1,7 @@
 name: zikzak_useragent_platform_interface
 description: A common platform interface for the zikzak_useragent plugin.
 repository: https://github.com/arrrrny/zikzak_useragent/tree/main/zikzak_useragent_platform_interface
-version: 1.1.0
+version: 1.1.1
 
 environment:
   sdk: "^3.3.0"
