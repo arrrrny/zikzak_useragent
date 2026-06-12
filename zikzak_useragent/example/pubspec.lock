@@ -277,35 +277,39 @@ packages:
       path: ".."
       relative: true
     source: path
-    version: "1.1.3"
+    version: "1.1.4"
   zikzak_useragent_android:
     dependency: transitive
     description:
-      path: "../../zikzak_useragent_android"
-      relative: true
-    source: path
-    version: "1.1.3"
+      name: zikzak_useragent_android
+      sha256: d4a231a23349dd55ff5bb36fab644125e3834f213e9bb12e2cf845922c0242c9
+      url: "https://pub.dev"
+    source: hosted
+    version: "1.1.4"
   zikzak_useragent_ios:
     dependency: transitive
     description:
-      path: "../../zikzak_useragent_ios"
-      relative: true
-    source: path
-    version: "1.1.3"
+      name: zikzak_useragent_ios
+      sha256: "4aed400d20e6b776e6a93521ae75f18cb1e799623f90020b8746259d56254b69"
+      url: "https://pub.dev"
+    source: hosted
+    version: "1.1.4"
   zikzak_useragent_macos:
     dependency: transitive
     description:
-      path: "../../zikzak_useragent_macos"
-      relative: true
-    source: path
-    version: "1.1.3"
+      name: zikzak_useragent_macos
+      sha256: "317567c111cc0f23455212f4f3fb8c899e67e7982716c94663e922904752935f"
+      url: "https://pub.dev"
+    source: hosted
+    version: "1.1.4"
   zikzak_useragent_platform_interface:
     dependency: transitive
     description:
-      path: "../../zikzak_useragent_platform_interface"
-      relative: true
-    source: path
-    version: "1.1.3"
+      name: zikzak_useragent_platform_interface
+      sha256: "9c4f85dca276e1cd40f4795c7fd44c14e857823b8315327e4d5b458dd2ac46ec"
+      url: "https://pub.dev"
+    source: hosted
+    version: "1.1.4"
 sdks:
   dart: ">=3.10.0-0 <4.0.0"
   flutter: ">=3.19.0"
