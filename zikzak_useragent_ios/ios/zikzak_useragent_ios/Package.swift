@@ -8,7 +8,7 @@ let package = Package(
     ],
     products: [
         .library(
-            name: "zikzak_useragent_ios",
+            name: "zikzak-useragent-ios",
             type: .static,
             targets: ["zikzak_useragent_ios"]
         )

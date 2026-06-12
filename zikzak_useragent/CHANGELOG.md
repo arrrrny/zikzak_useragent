@@ -1,3 +1,7 @@
+## 1.1.4 - 2026-06-12
+
+* Remove SPM build artifacts from git tracking
+* Remove SPM build artifacts from git tracking
 ## 1.1.3 - 2026-06-12
 
 * Chore: published 1.1.2

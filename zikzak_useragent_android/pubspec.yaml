@@ -1,7 +1,7 @@
 name: zikzak_useragent_android
 description: The Android implementation of zikzak_useragent.
 repository: https://github.com/arrrrny/zikzak_useragent/tree/main/zikzak_useragent_android
-version: 1.1.3
+version: 1.1.4
 
 environment:
   sdk: "^3.3.0"
@@ -11,7 +11,7 @@ dependencies:
   flutter:
     sdk: flutter
 
-  zikzak_useragent_platform_interface: ^1.1.3
+  zikzak_useragent_platform_interface: ^1.1.4
 
 flutter:
   plugin:
