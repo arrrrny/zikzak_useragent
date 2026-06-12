@@ -1,0 +1,237 @@
+{
+  "builtTestProducts" : [
+
+  ],
+  "copyCommands" : {
+
+  },
+  "explicitTargetDependencyImportCheckingMode" : {
+    "none" : {
+
+    }
+  },
+  "generatedSourceTargetSet" : [
+
+  ],
+  "pluginDescriptions" : [
+
+  ],
+  "swiftCommands" : {
+    "C.zikzak_useragent_macos-x86_64-apple-macosx15.0-debug.module" : {
+      "executable" : "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/swiftc",
+      "fileList" : "/Users/ahmettok/Developer/zikzak_useragent/zikzak_useragent_macos/macos/.build/index-build/x86_64-apple-macosx/debug/zikzak_useragent_macos.build/sources",
+      "importPath" : "/Users/ahmettok/Developer/zikzak_useragent/zikzak_useragent_macos/macos/.build/index-build/x86_64-apple-macosx/debug/Modules",
+      "inputs" : [
+        {
+          "kind" : "file",
+          "name" : "/Users/ahmettok/Developer/zikzak_useragent/zikzak_useragent_macos/macos/Classes/ZikzakUserAgentPlugin.swift"
+        },
+        {
+          "kind" : "file",
+          "name" : "/Users/ahmettok/Developer/zikzak_useragent/zikzak_useragent_macos/macos/.build/index-build/x86_64-apple-macosx/debug/swift-version--58304C5D6DBC2206.txt"
+        },
+        {
+          "kind" : "file",
+          "name" : "/Users/ahmettok/Developer/zikzak_useragent/zikzak_useragent_macos/macos/.build/index-build/x86_64-apple-macosx/debug/zikzak_useragent_macos.build/sources"
+        }
+      ],
+      "isLibrary" : true,
+      "moduleName" : "zikzak_useragent_macos",
+      "moduleOutputPath" : "/Users/ahmettok/Developer/zikzak_useragent/zikzak_useragent_macos/macos/.build/index-build/x86_64-apple-macosx/debug/Modules/zikzak_useragent_macos.swiftmodule",
+      "objects" : [
+        "/Users/ahmettok/Developer/zikzak_useragent/zikzak_useragent_macos/macos/.build/index-build/x86_64-apple-macosx/debug/zikzak_useragent_macos.build/ZikzakUserAgentPlugin.swift.o"
+      ],
+      "otherArguments" : [
+        "-target",
+        "x86_64-apple-macosx10.14",
+        "-incremental",
+        "-enable-batch-mode",
+        "-serialize-diagnostics",
+        "-Onone",
+        "-enable-testing",
+        "-j16",
+        "-DSWIFT_PACKAGE",
+        "-DDEBUG",
+        "-DSWIFT_MODULE_RESOURCE_BUNDLE_UNAVAILABLE",
+        "-module-cache-path",
+        "/Users/ahmettok/Developer/zikzak_useragent/zikzak_useragent_macos/macos/.build/index-build/x86_64-apple-macosx/debug/ModuleCache",
+        "-parseable-output",
+        "-parse-as-library",
+        "-emit-objc-header",
+        "-emit-objc-header-path",
+        "/Users/ahmettok/Developer/zikzak_useragent/zikzak_useragent_macos/macos/.build/index-build/x86_64-apple-macosx/debug/zikzak_useragent_macos.build/include/zikzak_useragent_macos-Swift.h",
+        "-swift-version",
+        "5",
+        "-Xfrontend",
+        "-experimental-lazy-typecheck",
+        "-Xfrontend",
+        "-experimental-skip-all-function-bodies",
+        "-Xfrontend",
+        "-experimental-allow-module-with-compiler-errors",
+        "-Xfrontend",
+        "-empty-abi-descriptor",
+        "-plugin-path",
+        "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/host/plugins/testing",
+        "-sdk",
+        "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX26.2.sdk",
+        "-F",
+        "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/Library/Frameworks",
+        "-F",
+        "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/Library/PrivateFrameworks",
+        "-I",
+        "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/usr/lib",
+        "-L",
+        "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/usr/lib",
+        "-g",
+        "-Xcc",
+        "-isysroot",
+        "-Xcc",
+        "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX26.2.sdk",
+        "-Xcc",
+        "-F",
+        "-Xcc",
+        "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/Library/Frameworks",
+        "-Xcc",
+        "-F",
+        "-Xcc",
+        "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/Library/PrivateFrameworks",
+        "-Xcc",
+        "-fPIC",
+        "-Xcc",
+        "-g"
+      ],
+      "outputFileMapPath" : "/Users/ahmettok/Developer/zikzak_useragent/zikzak_useragent_macos/macos/.build/index-build/x86_64-apple-macosx/debug/zikzak_useragent_macos.build/output-file-map.json",
+      "outputs" : [
+        {
+          "kind" : "file",
+          "name" : "/Users/ahmettok/Developer/zikzak_useragent/zikzak_useragent_macos/macos/.build/index-build/x86_64-apple-macosx/debug/Modules/zikzak_useragent_macos.swiftmodule"
+        }
+      ],
+      "prepareForIndexing" : true,
+      "sources" : [
+        "/Users/ahmettok/Developer/zikzak_useragent/zikzak_useragent_macos/macos/Classes/ZikzakUserAgentPlugin.swift"
+      ],
+      "tempsPath" : "/Users/ahmettok/Developer/zikzak_useragent/zikzak_useragent_macos/macos/.build/index-build/x86_64-apple-macosx/debug/zikzak_useragent_macos.build",
+      "wholeModuleOptimization" : false
+    }
+  },
+  "swiftFrontendCommands" : {
+
+  },
+  "swiftTargetScanArgs" : {
+    "zikzak_useragent_macos" : [
+      "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/swiftc",
+      "-module-name",
+      "zikzak_useragent_macos",
+      "-c",
+      "/Users/ahmettok/Developer/zikzak_useragent/zikzak_useragent_macos/macos/Classes/ZikzakUserAgentPlugin.swift",
+      "-I",
+      "/Users/ahmettok/Developer/zikzak_useragent/zikzak_useragent_macos/macos/.build/index-build/x86_64-apple-macosx/debug/Modules",
+      "-target",
+      "x86_64-apple-macosx10.14",
+      "-incremental",
+      "-enable-batch-mode",
+      "-serialize-diagnostics",
+      "-Onone",
+      "-enable-testing",
+      "-j16",
+      "-DSWIFT_PACKAGE",
+      "-DDEBUG",
+      "-DSWIFT_MODULE_RESOURCE_BUNDLE_UNAVAILABLE",
+      "-module-cache-path",
+      "/Users/ahmettok/Developer/zikzak_useragent/zikzak_useragent_macos/macos/.build/index-build/x86_64-apple-macosx/debug/ModuleCache",
+      "-parseable-output",
+      "-parse-as-library",
+      "-emit-objc-header",
+      "-emit-objc-header-path",
+      "/Users/ahmettok/Developer/zikzak_useragent/zikzak_useragent_macos/macos/.build/index-build/x86_64-apple-macosx/debug/zikzak_useragent_macos.build/include/zikzak_useragent_macos-Swift.h",
+      "-swift-version",
+      "5",
+      "-Xfrontend",
+      "-experimental-lazy-typecheck",
+      "-Xfrontend",
+      "-experimental-skip-all-function-bodies",
+      "-Xfrontend",
+      "-experimental-allow-module-with-compiler-errors",
+      "-Xfrontend",
+      "-empty-abi-descriptor",
+      "-plugin-path",
+      "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/host/plugins/testing",
+      "-sdk",
+      "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX26.2.sdk",
+      "-F",
+      "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/Library/Frameworks",
+      "-F",
+      "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/Library/PrivateFrameworks",
+      "-I",
+      "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/usr/lib",
+      "-L",
+      "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/usr/lib",
+      "-g",
+      "-Xcc",
+      "-isysroot",
+      "-Xcc",
+      "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX26.2.sdk",
+      "-Xcc",
+      "-F",
+      "-Xcc",
+      "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/Library/Frameworks",
+      "-Xcc",
+      "-F",
+      "-Xcc",
+      "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/Library/PrivateFrameworks",
+      "-Xcc",
+      "-fPIC",
+      "-Xcc",
+      "-g",
+      "-driver-use-frontend-path",
+      "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/swiftc"
+    ]
+  },
+  "targetDependencyMap" : {
+    "zikzak_useragent_macos" : [
+
+    ]
+  },
+  "testDiscoveryCommands" : {
+
+  },
+  "testEntryPointCommands" : {
+
+  },
+  "traitConfiguration" : {
+    "default" : {
+
+    }
+  },
+  "writeCommands" : {
+    "/Users/ahmettok/Developer/zikzak_useragent/zikzak_useragent_macos/macos/.build/index-build/x86_64-apple-macosx/debug/swift-version--58304C5D6DBC2206.txt" : {
+      "alwaysOutOfDate" : true,
+      "inputs" : [
+        {
+          "kind" : "virtual",
+          "name" : "<swift-get-version>"
+        },
+        {
+          "kind" : "file",
+          "name" : "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/swiftc"
+        }
+      ],
+      "outputFilePath" : "/Users/ahmettok/Developer/zikzak_useragent/zikzak_useragent_macos/macos/.build/index-build/x86_64-apple-macosx/debug/swift-version--58304C5D6DBC2206.txt"
+    },
+    "/Users/ahmettok/Developer/zikzak_useragent/zikzak_useragent_macos/macos/.build/index-build/x86_64-apple-macosx/debug/zikzak_useragent_macos.build/sources" : {
+      "alwaysOutOfDate" : false,
+      "inputs" : [
+        {
+          "kind" : "virtual",
+          "name" : "<sources-file-list>"
+        },
+        {
+          "kind" : "file",
+          "name" : "/Users/ahmettok/Developer/zikzak_useragent/zikzak_useragent_macos/macos/Classes/ZikzakUserAgentPlugin.swift"
+        }
+      ],
+      "outputFilePath" : "/Users/ahmettok/Developer/zikzak_useragent/zikzak_useragent_macos/macos/.build/index-build/x86_64-apple-macosx/debug/zikzak_useragent_macos.build/sources"
+    }
+  }
+}

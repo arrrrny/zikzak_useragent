@@ -37,7 +37,7 @@ verify_versions() {
     print_info "Verifying all packages are version 1.1.0..."
 
     EXPECTED_VERSION="1.1.0"
-    PACKAGES=("zikzak_useragent" "zikzak_useragent_platform_interface" "zikzak_useragent_ios" "zikzak_useragent_android")
+    PACKAGES=("zikzak_useragent" "zikzak_useragent_platform_interface" "zikzak_useragent_ios" "zikzak_useragent_android" "zikzak_useragent_macos")
 
     for package in "${PACKAGES[@]}"; do
         VERSION=$(grep "^version:" $package/pubspec.yaml | cut -d' ' -f2)
@@ -53,7 +53,7 @@ verify_versions() {
 verify_licenses() {
     print_info "Verifying Apache 2.0 licenses exist..."
 
-    PACKAGES=("zikzak_useragent" "zikzak_useragent_platform_interface" "zikzak_useragent_ios" "zikzak_useragent_android")
+    PACKAGES=("zikzak_useragent" "zikzak_useragent_platform_interface" "zikzak_useragent_ios" "zikzak_useragent_android" "zikzak_useragent_macos")
 
     for package in "${PACKAGES[@]}"; do
         if [ -f "$package/LICENSE" ]; then
@@ -73,18 +73,11 @@ verify_licenses() {
 verify_author_info() {
     print_info "Verifying ARRRRNY author information..."
 
-    # Check iOS podspec
-    if grep -q "ARRRRNY" zikzak_useragent_ios/ios/zikzak_useragent_ios.podspec; then
-        print_status "iOS podspec: ARRRRNY author ✅"
+    # Check iOS Swift sources
+    if grep -q "ARRRRNY" zikzak_useragent_ios/ios/zikzak_useragent_ios/Sources/zikzak_useragent_ios/ZikzakUserAgentPlugin.swift; then
+        print_status "iOS sources: ARRRRNY author ✅"
     else
-        print_error "iOS podspec: ARRRRNY author missing"
-        exit 1
-    fi
-
-    if grep -q "arrrrny@zuzu.dev" zikzak_useragent_ios/ios/zikzak_useragent_ios.podspec; then
-        print_status "iOS podspec: zuzu.dev email ✅"
-    else
-        print_error "iOS podspec: zuzu.dev email missing"
+        print_error "iOS sources: ARRRRNY author missing"
         exit 1
     fi
 }
@@ -98,7 +91,8 @@ verify_package_structure() {
         "zikzak_useragent_platform_interface/lib/zikzak_useragent_platform_interface.dart"
         "zikzak_useragent_ios/lib/zikzak_useragent_ios.dart"
         "zikzak_useragent_android/lib/zikzak_useragent_android.dart"
-        "zikzak_useragent_ios/ios/Classes/ZikzakUserAgentPlugin.swift"
+        "zikzak_useragent_ios/ios/zikzak_useragent_ios/Sources/zikzak_useragent_ios/ZikzakUserAgentPlugin.swift"
+        "zikzak_useragent_macos/macos/zikzak_useragent_macos/Sources/zikzak_useragent_macos/ZikzakUserAgentPlugin.swift"
         "zikzak_useragent_android/android/src/main/kotlin/com/strysk/zikzak_useragent_android/zikzak_useragent_android/ZikzakUserAgentPlugin.kt"
     )
 
