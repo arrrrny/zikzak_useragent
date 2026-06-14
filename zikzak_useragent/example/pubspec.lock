@@ -222,35 +222,35 @@ packages:
       path: ".."
       relative: true
     source: path
-    version: "1.1.4"
+    version: "1.1.5"
   zikzak_useragent_android:
-    dependency: transitive
+    dependency: "direct overridden"
     description:
       path: "../../zikzak_useragent_android"
       relative: true
     source: path
-    version: "1.1.4"
+    version: "1.1.5"
   zikzak_useragent_ios:
-    dependency: transitive
+    dependency: "direct overridden"
     description:
       path: "../../zikzak_useragent_ios"
       relative: true
     source: path
-    version: "1.1.4"
+    version: "1.1.5"
   zikzak_useragent_macos:
-    dependency: transitive
+    dependency: "direct overridden"
     description:
       path: "../../zikzak_useragent_macos"
       relative: true
     source: path
-    version: "1.1.4"
+    version: "1.1.5"
   zikzak_useragent_platform_interface:
-    dependency: transitive
+    dependency: "direct overridden"
     description:
       path: "../../zikzak_useragent_platform_interface"
       relative: true
     source: path
-    version: "1.1.4"
+    version: "1.1.5"
 sdks:
   dart: ">=3.12.0 <4.0.0"
   flutter: ">=3.44.0"
