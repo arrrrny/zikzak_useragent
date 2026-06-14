@@ -4,20 +4,21 @@ repository: https://github.com/arrrrny/zikzak_useragent/tree/main/zikzak_userage
 version: 1.1.4
 
 environment:
-  sdk: "^3.3.0"
-  flutter: ">=3.19.0"
+  sdk: ^3.12.0
+  flutter: ">=3.44.0"
 
 dependencies:
   flutter:
     sdk: flutter
 
-  zikzak_useragent_platform_interface: ^1.1.4
+  zikzak_useragent_platform_interface:
+    path: ../zikzak_useragent_platform_interface
 
 flutter:
   plugin:
     implements: zikzak_useragent
     platforms:
       android:
-        package: com.strysk.zikzak_useragent_android.zikzak_useragent_android
+        package: dev.zuzu.zikzak_useragent_android.zikzak_useragent_android
         pluginClass: ZikzakUserAgentPlugin
         dartPluginClass: ZikzakUserAgentAndroid

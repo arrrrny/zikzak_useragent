@@ -1,4 +1,4 @@
-package com.strysk.zikzak_useragent_android.zikzak_useragent_android
+package dev.zuzu.zikzak_useragent_android.zikzak_useragent_android
 
 import android.webkit.WebSettings
 
@@ -8,7 +8,7 @@ import io.flutter.plugin.common.MethodChannel
 import io.flutter.plugin.common.MethodChannel.MethodCallHandler
 import io.flutter.plugin.common.MethodChannel.Result
 
-class ZikzakUserAgentPlugin: FlutterPlugin, MethodCallHandler {
+class ZikzakUserAgentPlugin : FlutterPlugin, MethodCallHandler {
     private lateinit var channel: MethodChannel
     private var applicationContext: android.content.Context? = null
 

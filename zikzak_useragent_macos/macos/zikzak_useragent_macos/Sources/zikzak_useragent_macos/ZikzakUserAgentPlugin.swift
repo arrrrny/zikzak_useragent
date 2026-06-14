@@ -1,5 +1,5 @@
 import Cocoa
-import FlutterMacOS
+@preconcurrency import FlutterMacOS
 import WebKit
 
 public class ZikzakUserAgentPlugin: NSObject, FlutterPlugin {
@@ -11,18 +11,19 @@ public class ZikzakUserAgentPlugin: NSObject, FlutterPlugin {
         registrar.addMethodCallDelegate(instance, channel: channel)
     }
 
-    public func handle(_ call: FlutterMethodCall, result: @escaping FlutterResult) {
+    nonisolated public func handle(_ call: FlutterMethodCall, result: @escaping FlutterResult) {
         switch call.method {
         case "getPlatformUserAgent":
-            DispatchQueue.main.async {
-                let webView = WKWebView(frame: .zero)
-                if let userAgent = webView.value(forKey: "userAgent") as? String {
-                    result(self.appendSafariVersion(to: userAgent))
-                } else {
-                    result(FlutterError(code: "USER_AGENT_ERROR",
-                                        message: "Failed to get user agent",
-                                        details: nil))
-                }
+            // Flutter calls handle on the main thread, so WKWebView creation is safe
+            let webView = WKWebView(frame: .zero)
+            if let userAgent = webView.value(forKey: "userAgent") as? String {
+                result(appendSafariVersion(to: userAgent))
+            } else {
+                result(
+                    FlutterError(
+                        code: "USER_AGENT_ERROR",
+                        message: "Failed to get user agent",
+                        details: nil))
             }
         default:
             result(FlutterMethodNotImplemented)

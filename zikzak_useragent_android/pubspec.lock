@@ -62,11 +62,10 @@ packages:
   zikzak_useragent_platform_interface:
     dependency: "direct main"
     description:
-      name: zikzak_useragent_platform_interface
-      sha256: "9c4f85dca276e1cd40f4795c7fd44c14e857823b8315327e4d5b458dd2ac46ec"
-      url: "https://pub.dev"
-    source: hosted
+      path: "../zikzak_useragent_platform_interface"
+      relative: true
+    source: path
     version: "1.1.4"
 sdks:
-  dart: ">=3.10.0-0 <4.0.0"
-  flutter: ">=3.19.0"
+  dart: ">=3.12.0 <4.0.0"
+  flutter: ">=3.44.0"

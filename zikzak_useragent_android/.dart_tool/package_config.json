@@ -51,7 +51,7 @@
     },
     {
       "name": "zikzak_useragent_platform_interface",
-      "rootUri": "file:///Users/ahmettok/.pub-cache/hosted/pub.dev/zikzak_useragent_platform_interface-1.1.4",
+      "rootUri": "../../zikzak_useragent_platform_interface",
       "packageUri": "lib/",
       "languageVersion": "3.3"
     },
@@ -59,12 +59,12 @@
       "name": "zikzak_useragent_android",
       "rootUri": "../",
       "packageUri": "lib/",
-      "languageVersion": "3.3"
+      "languageVersion": "3.12"
     }
   ],
   "generator": "pub",
-  "generatorVersion": "3.12.1",
+  "generatorVersion": "3.12.2",
   "flutterRoot": "file:///Users/ahmettok/Developer/flutter",
-  "flutterVersion": "3.44.1",
+  "flutterVersion": "3.44.2",
   "pubCache": "file:///Users/ahmettok/.pub-cache"
 }

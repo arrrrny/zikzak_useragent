@@ -11,10 +11,14 @@ dependencies:
   flutter:
     sdk: flutter
   plugin_platform_interface: ^2.1.8
-  zikzak_useragent_ios: ^1.1.4
-  zikzak_useragent_android: ^1.1.4
-  zikzak_useragent_macos: ^1.1.4
-  zikzak_useragent_platform_interface: ^1.1.4
+  zikzak_useragent_ios:
+    path: ../zikzak_useragent_ios
+  zikzak_useragent_android:
+    path: ../zikzak_useragent_android
+  zikzak_useragent_macos:
+    path: ../zikzak_useragent_macos
+  zikzak_useragent_platform_interface:
+    path: ../zikzak_useragent_platform_interface
 
 dev_dependencies:
   flutter_test:

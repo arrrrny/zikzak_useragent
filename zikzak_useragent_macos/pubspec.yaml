@@ -11,7 +11,8 @@ dependencies:
   flutter:
     sdk: flutter
 
-  zikzak_useragent_platform_interface: ^1.1.4
+  zikzak_useragent_platform_interface:
+    path: ../zikzak_useragent_platform_interface
 
 flutter:
   plugin:
