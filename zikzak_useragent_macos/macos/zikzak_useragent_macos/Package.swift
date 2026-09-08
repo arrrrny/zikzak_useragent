@@ -4,7 +4,7 @@ import PackageDescription
 let package = Package(
     name: "zikzak_useragent_macos",
     platforms: [
-        .macOS("12.0")
+        .macOS("13.5")
     ],
     products: [
         .library(
