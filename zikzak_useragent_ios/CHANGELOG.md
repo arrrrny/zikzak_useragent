@@ -1,3 +1,9 @@
+## 1.2.0 - 2026-10-20
+
+
+- Fetch the platform user agent via `evaluateJavaScript("navigator.userAgent")` on an initialized WKWebView instead of the `value(forKey:"userAgent")` KVC template — the template lags the runtime (stale OS token, missing `Version/` component) and Google now rejects scraping clients whose UA does not match a live browser session. The KVC template is kept only as a last-resort fallback.
+- Run the whole fetch on the main actor (`MainActor.assumeIsolated`) to satisfy Swift 6 strict concurrency; snapshot the fallback template before the async hop so `self` is not captured in the `@Sendable` completion.
+
 ## 1.1.5 - 2026-06-14
 
 

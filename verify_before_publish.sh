@@ -34,12 +34,15 @@ print_info() {
 
 # Verification functions
 verify_versions() {
-    print_info "Verifying all packages are version 1.1.0..."
+    print_info "Verifying package versions (1.2.0 family + untouched platform packages)..."
 
-    EXPECTED_VERSION="1.1.0"
-    PACKAGES=("zikzak_useragent" "zikzak_useragent_platform_interface" "zikzak_useragent_ios" "zikzak_useragent_android" "zikzak_useragent_macos")
+    # 1.2.0 carries the navigator.userAgent fix — only the packages that
+    # changed get bumped. _platform_interface and _android are untouched
+    # (Android's WebSettings.getDefaultUserAgent() was already correct).
+    EXPECTED_VERSION="1.2.0"
+    BUMPED=("zikzak_useragent" "zikzak_useragent_ios" "zikzak_useragent_macos")
 
-    for package in "${PACKAGES[@]}"; do
+    for package in "${BUMPED[@]}"; do
         VERSION=$(grep "^version:" $package/pubspec.yaml | cut -d' ' -f2)
         if [ "$VERSION" = "$EXPECTED_VERSION" ]; then
             print_status "$package: $VERSION"
@@ -48,14 +51,40 @@ verify_versions() {
             exit 1
         fi
     done
+
+    UNTOUCHED=("zikzak_useragent_platform_interface:1.1.5" "zikzak_useragent_android:1.1.5")
+    for entry in "${UNTOUCHED[@]}"; do
+        package="${entry%%:*}"
+        expected="${entry##*:}"
+        VERSION=$(grep "^version:" $package/pubspec.yaml | cut -d' ' -f2)
+        if [ "$VERSION" = "$expected" ]; then
+            print_status "$package: $VERSION (unchanged, as intended)"
+        else
+            print_error "$package: Expected unchanged $expected, found $VERSION"
+            exit 1
+        fi
+    done
 }
 
 verify_licenses() {
-    print_info "Verifying Apache 2.0 licenses exist..."
+    print_info "Verifying LICENSE files..."
 
-    PACKAGES=("zikzak_useragent" "zikzak_useragent_platform_interface" "zikzak_useragent_ios" "zikzak_useragent_android" "zikzak_useragent_macos")
+    # zikzak_useragent_ios is a fork of Ryosuke Seto's package and RETAINS the
+    # upstream BSD 3-clause license (attribution requirement). Everything else
+    # is Apache 2.0.
+    BSD_PACKAGES=("zikzak_useragent_ios" "zikzak_useragent_android")
+    APACHE_PACKAGES=("zikzak_useragent" "zikzak_useragent_platform_interface" "zikzak_useragent_macos")
 
-    for package in "${PACKAGES[@]}"; do
+    for package in "${BSD_PACKAGES[@]}"; do
+        if [ -f "$package/LICENSE" ]; then
+            print_status "$package: upstream BSD license retained ✅"
+        else
+            print_error "$package: LICENSE file missing"
+            exit 1
+        fi
+    done
+
+    for package in "${APACHE_PACKAGES[@]}"; do
         if [ -f "$package/LICENSE" ]; then
             if grep -q "Apache License" "$package/LICENSE"; then
                 print_status "$package: Apache 2.0 license ✅"
@@ -71,13 +100,21 @@ verify_licenses() {
 }
 
 verify_author_info() {
-    print_info "Verifying ARRRRNY author information..."
+    print_info "Verifying ARRRRNY authorship via git history..."
 
-    # Check iOS Swift sources
-    if grep -q "ARRRRNY" zikzak_useragent_ios/ios/zikzak_useragent_ios/Sources/zikzak_useragent_ios/ZikzakUserAgentPlugin.swift; then
-        print_status "iOS sources: ARRRRNY author ✅"
+    AUTHOR=$(git log -1 --format='%an' zikzak_useragent_ios/ios/zikzak_useragent_ios/Sources/zikzak_useragent_ios/ZikzakUserAgentPlugin.swift)
+    if [ "$AUTHOR" = "ARRRRNY" ]; then
+        print_status "iOS sources: last touched by ARRRRNY ✅"
     else
-        print_error "iOS sources: ARRRRNY author missing"
+        print_error "iOS sources: last commit author is '$AUTHOR', expected ARRRRNY"
+        exit 1
+    fi
+
+    # The 1.2.0 substance: navigator.userAgent is the source of truth.
+    if grep -q 'navigator.userAgent' zikzak_useragent_ios/ios/zikzak_useragent_ios/Sources/zikzak_useragent_ios/ZikzakUserAgentPlugin.swift; then
+        print_status "iOS sources: navigator.userAgent fix present ✅"
+    else
+        print_error "iOS sources: navigator.userAgent fix missing"
         exit 1
     fi
 }
@@ -93,7 +130,7 @@ verify_package_structure() {
         "zikzak_useragent_android/lib/zikzak_useragent_android.dart"
         "zikzak_useragent_ios/ios/zikzak_useragent_ios/Sources/zikzak_useragent_ios/ZikzakUserAgentPlugin.swift"
         "zikzak_useragent_macos/macos/zikzak_useragent_macos/Sources/zikzak_useragent_macos/ZikzakUserAgentPlugin.swift"
-        "zikzak_useragent_android/android/src/main/kotlin/com/strysk/zikzak_useragent_android/zikzak_useragent_android/ZikzakUserAgentPlugin.kt"
+        "zikzak_useragent_android/android/src/main/kotlin/dev/zuzu/zikzak_useragent_android/zikzak_useragent_android/ZikzakUserAgentPlugin.kt"
     )
 
     for file in "${FILES[@]}"; do
@@ -162,14 +199,14 @@ verify_dependencies() {
     print_info "Verifying dependency versions..."
 
     # Check platform interface dependencies
-    if grep -q "zikzak_useragent_platform_interface: \^1.1.0" zikzak_useragent_ios/pubspec.yaml; then
+    if grep -q "zikzak_useragent_platform_interface: \^1.1.5" zikzak_useragent_ios/pubspec.yaml; then
         print_status "iOS platform interface dependency ✅"
     else
         print_error "iOS platform interface dependency incorrect"
         exit 1
     fi
 
-    if grep -q "zikzak_useragent_platform_interface: \^1.1.0" zikzak_useragent_android/pubspec.yaml; then
+    if grep -q "zikzak_useragent_platform_interface: \^1.1.5" zikzak_useragent_android/pubspec.yaml; then
         print_status "Android platform interface dependency ✅"
     else
         print_error "Android platform interface dependency incorrect"
@@ -239,9 +276,8 @@ echo "=========================================="
 print_status "🔥 ALL ZIKZAK VERIFICATIONS PASSED! 🔥"
 echo ""
 echo -e "${BLUE}Ready for publishing sequence:${NC}"
-echo -e "${YELLOW}1. zikzak_useragent_platform_interface${NC}"
-echo -e "${YELLOW}2. zikzak_useragent_ios${NC}"
-echo -e "${YELLOW}3. zikzak_useragent_android${NC}"
-echo -e "${YELLOW}4. zikzak_useragent${NC}"
+echo -e "${YELLOW}1. zikzak_useragent_ios${NC}"
+echo -e "${YELLOW}2. zikzak_useragent_macos${NC}"
+echo -e "${YELLOW}3. zikzak_useragent${NC}"
 echo ""
 echo -e "${GREEN}WE ARE ZIKZAK. WE ARE READY TO DETONATE.${NC}"

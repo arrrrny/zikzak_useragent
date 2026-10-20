@@ -1,3 +1,8 @@
+## 1.2.0 - 2026-10-20
+
+
+- Require `zikzak_useragent_ios`/`zikzak_useragent_macos` ^1.2.0: the iOS and macOS engines now return the live WebView user agent (`navigator.userAgent` evaluated on an initialized WKWebView) instead of the stale KVC template. Scraping targets fingerprint UA-vs-browser consistency — the old template could disagree with the real engine UA and get requests captcha-challenged.
+
 ## 1.1.5 - 2026-06-14
 
 - Fix Swift 6 concurrency errors on iOS and macOS plugins
