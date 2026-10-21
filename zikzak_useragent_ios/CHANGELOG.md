@@ -1,3 +1,7 @@
+## 1.2.1 - 2026-10-21
+
+- **ios**: the last-resort fallback User-Agent is returned verbatim again — the appended `Safari/<webkit version>` token is gone, so the fallback is shaped like a real WKWebView UA instead of a string no client sends. It is still the KVC template, though, so it may carry a stale OS token and is not guaranteed to equal `navigator.userAgent`.
+
 ## 1.2.0 - 2026-10-20
 
 
