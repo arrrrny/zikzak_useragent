@@ -102,11 +102,16 @@ verify_licenses() {
 verify_author_info() {
     print_info "Verifying ARRRRNY authorship via git history..."
 
+    # The iOS sources are ours, not upstream's. The review pipeline's own fix
+    # commits (zuraffa-review[bot]) are ours too — they are applied on the
+    # owner's behalf — so both names pass. The bot is what applies the
+    # review findings to these very files, so without it every fix round
+    # would break this check.
     AUTHOR=$(git log -1 --format='%an' zikzak_useragent_ios/ios/zikzak_useragent_ios/Sources/zikzak_useragent_ios/ZikzakUserAgentPlugin.swift)
-    if [ "$AUTHOR" = "ARRRRNY" ]; then
-        print_status "iOS sources: last touched by ARRRRNY ✅"
+    if [ "$AUTHOR" = "ARRRRNY" ] || [ "$AUTHOR" = "zuraffa-review[bot]" ]; then
+        print_status "iOS sources: last touched by $AUTHOR ✅"
     else
-        print_error "iOS sources: last commit author is '$AUTHOR', expected ARRRRNY"
+        print_error "iOS sources: last commit author is '$AUTHOR', expected ARRRRNY or zuraffa-review[bot]"
         exit 1
     fi
 
