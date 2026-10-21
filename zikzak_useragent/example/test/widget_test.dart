@@ -16,9 +16,16 @@ void main() {
     await tester.pumpWidget(const MyApp());
 
     // Verify that platform version is retrieved.
+    //
+    // The stock plugin template asserted `widget.data!.startsWith('')`, which
+    // matches EVERY Text in the tree. The example app renders a second Text
+    // (the AppBar title), so that finder found two widgets and the test was
+    // red on master before this fix. Scope the finder to the body, which
+    // holds the one Text that carries the platform UserAgent.
     expect(
-      find.byWidgetPredicate(
-        (Widget widget) => widget is Text && widget.data!.startsWith(''),
+      find.descendant(
+        of: find.byType(Center),
+        matching: find.byType(Text),
       ),
       findsOneWidget,
     );
