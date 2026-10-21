@@ -89,8 +89,10 @@ public class ZikzakUserAgentPlugin: NSObject, FlutterPlugin {
                 // WKWebView's carries neither. The doctored value therefore
                 // matched neither Safari nor a WebView, and a server that
                 // fingerprints the UA against the client's TLS/JS behaviour
-                // sees a client that does not exist. The raw template is at
-                // least the truth about this engine.
+                // sees a client that does not exist. The raw template is the
+                // truth about the engine build, but it is still the KVC
+                // template: it may carry a stale OS token and is not
+                // guaranteed to equal navigator.userAgent.
                 DispatchQueue.main.asyncAfter(deadline: .now() + 8) {
                     box.reply {
                         fallbackTemplate

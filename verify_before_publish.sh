@@ -34,12 +34,12 @@ print_info() {
 
 # Verification functions
 verify_versions() {
-    print_info "Verifying package versions (1.2.0 family + untouched platform packages)..."
+    print_info "Verifying package versions (1.2.1 family + untouched platform packages)..."
 
-    # 1.2.0 carries the navigator.userAgent fix — only the packages that
-    # changed get bumped. _platform_interface and _android are untouched
+    # 1.2.1 returns the fallback User-Agent verbatim — the same three
+    # packages changed. _platform_interface and _android are untouched
     # (Android's WebSettings.getDefaultUserAgent() was already correct).
-    EXPECTED_VERSION="1.2.0"
+    EXPECTED_VERSION="1.2.1"
     BUMPED=("zikzak_useragent" "zikzak_useragent_ios" "zikzak_useragent_macos")
 
     for package in "${BUMPED[@]}"; do
