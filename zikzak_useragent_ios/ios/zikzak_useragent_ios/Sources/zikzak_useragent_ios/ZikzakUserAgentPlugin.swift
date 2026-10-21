@@ -82,9 +82,19 @@ public class ZikzakUserAgentPlugin: NSObject, FlutterPlugin {
                 // never fire — answer with the template instead of hanging
                 // the platform channel. UserAgentCache does not lock the
                 // fallback in, so a later call can still recover the live UA.
+                //
+                // The template is returned VERBATIM. It used to be doctored
+                // with an appended "Safari/<webkit version>", which made it
+                // a string no client ever sends: Safari's own UA carries a
+                // "Version/<os>" token and a "Safari/604.1" token, while
+                // WKWebView's carries neither. The doctored value therefore
+                // matched neither Safari nor a WebView, and a server that
+                // fingerprints the UA against the client's TLS/JS behaviour
+                // sees a client that does not exist. The raw template is at
+                // least the truth about this engine.
                 DispatchQueue.main.asyncAfter(deadline: .now() + 8) {
                     box.reply {
-                        fallbackTemplate.map { Self.appendSafariVersion(to: $0) }
+                        fallbackTemplate
                             ?? FlutterError(
                                 code: "USER_AGENT_ERROR",
                                 message: "Failed to get user agent",
@@ -95,15 +105,5 @@ public class ZikzakUserAgentPlugin: NSObject, FlutterPlugin {
         default:
             result(FlutterMethodNotImplemented)
         }
-    }
-
-    private static func appendSafariVersion(to userAgent: String) -> String {
-        if let range = userAgent.range(of: "AppleWebKit/") {
-            let versionStart = range.upperBound
-            let versionEnd = userAgent[versionStart...].firstIndex(of: " ") ?? userAgent.endIndex
-            let webKitVersion = String(userAgent[versionStart..<versionEnd])
-            return userAgent + " Safari/" + webKitVersion
-        }
-        return userAgent
     }
 }

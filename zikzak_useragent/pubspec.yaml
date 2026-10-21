@@ -1,7 +1,7 @@
 name: zikzak_useragent
 description: "A Flutter plugin to get native WebView UserAgent."
 repository: https://github.com/arrrrny/zikzak_useragent/tree/main/zikzak_useragent
-version: 1.2.0
+version: 1.2.1
 
 environment:
   sdk: "^3.3.0"
